@@ -4,14 +4,19 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
 import pageObjects.Homepage;
+import pageObjects.Hooks;
 
 public class Stepdefs {
+    WebDriver driver;
     Homepage homepage;
+
+    public Stepdefs() {driver = Hooks.driver;}
 
     @Given("User navigates to {string}")
     public void userNavigatesTo(String url) {
-        homepage = new Homepage(url);
+        homepage = new Homepage(driver);
         homepage.openBrowser(url);
     }
 
@@ -23,11 +28,11 @@ public class Stepdefs {
 
     @Then("User clicks on the third result")
     public void userClicksOnTheThirdResult() {
-        System.out.println("third");
+        homepage.openThirdResult();
     }
 
     @And("User should be able to open in a new tab")
     public void userShouldBeAbleToOpenInANewTab() {
-        System.out.println("new tab");
+        homepage.openInNewTab();
     }
 }
