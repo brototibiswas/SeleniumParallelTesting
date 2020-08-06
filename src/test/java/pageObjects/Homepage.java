@@ -62,7 +62,7 @@ public class Homepage {
             result = driver.findElement(By.xpath("//div[contains(@class,'g')][3]/div[contains(@class,'rc')]/div[contains(@class,'r')]/a"));
         }
         else if(domain.equals("youtube")) {
-            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("contents")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h3[contains(@class,'title-and-badge')]")));
             result = driver.findElement(By.xpath("(//a[@id='video-title'])[3]"));
         }
     }
@@ -88,6 +88,16 @@ public class Homepage {
                     .keyUp(Keys.CONTROL)
                     .build()
                     .perform();
+        }
+        switchToNewWindow();
+    }
+
+    private void switchToNewWindow() {
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        System.out.println(tabs.size());
+
+        if(tabs.size() > 0) {
+            driver.switchTo().window(tabs.get(1));
         }
     }
 
