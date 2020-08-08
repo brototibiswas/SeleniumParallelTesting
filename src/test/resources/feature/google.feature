@@ -1,5 +1,6 @@
 Feature: Search in Google
 
+  @search
   Scenario Outline: Search in Google and open in new tab
     Given User navigates to <url>
     And Searches for a <term>
@@ -8,4 +9,3 @@ Feature: Search in Google
     Examples:
       | url                       | term   |
       | "https://www.google.com/" | "cat" |
-      | "https://www.youtube.com/" | "cat" |

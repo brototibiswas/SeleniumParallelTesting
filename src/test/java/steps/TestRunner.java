@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber"},
         features = "src/test/resources/feature"
 )
-public class TestRunner {
+public class TestRunner{
 }
