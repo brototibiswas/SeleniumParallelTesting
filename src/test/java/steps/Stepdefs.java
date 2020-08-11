@@ -6,16 +6,21 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import pageObjects.Homepage;
 
+import java.sql.Driver;
+
 public class Stepdefs {
     WebDriver driver;
     Homepage homepage;
 
-    public Stepdefs() {driver = Hooks.driver;}
+    public Stepdefs() {
+        driver = Hooks.getDriver();
+    }
 
     @Given("User navigates to {string}")
     public void userNavigatesTo(String url) {
         homepage = new Homepage(driver);
         homepage.openBrowser(url);
+        System.out.println("Thread ID - "+Thread.currentThread().getId());
     }
 
     @And("Searches for a {string}")

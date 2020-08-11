@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Set;
+
 public class Hooks {
     public static WebDriver driver;
 
@@ -28,6 +30,10 @@ public class Hooks {
                 driver = new ChromeDriver();
                 break;
         }
+    }
+
+    public static WebDriver getDriver() {
+        return driver;
     }
 
     /**

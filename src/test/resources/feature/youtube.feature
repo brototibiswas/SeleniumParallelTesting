@@ -1,6 +1,6 @@
 Feature: Search in Google
 
-  @search
+  @Youtube
   Scenario Outline: Search in Google and open in new tab
     Given User navigates to <url>
     And Searches for a <term>
